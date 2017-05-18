@@ -202,15 +202,6 @@ public class MusicPlayerActivity extends AppCompatActivity implements
                         Toast.makeText(getApplicationContext(), "Playing " + da.getType(), Toast.LENGTH_SHORT).show();
                     }
                     break;
-                case DetectedActivity.WALKING:
-                    Log.i(TAG, "DetectedActivity - walking");
-                    if (da.getConfidence() > 75) {
-                        Log.i(TAG, "DetectedActivity - walk - confidence done");
-                        mediaPlayer = MediaPlayer.create(this, R.raw.walk);
-                        mediaPlayer.start();
-                        Toast.makeText(getApplicationContext(), "Playing " + da.getType(), Toast.LENGTH_SHORT).show();
-                    }
-                    break;
                 case DetectedActivity.ON_BICYCLE:
                     Log.i(TAG, "DetectedActivity - bike");
                     if (da.getConfidence() > 75) {
@@ -257,7 +248,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements
         Log.i(TAG, "onClickStart");
 
         try {
-            mediaPlayer = MediaPlayer.create(this, R.raw.still);
+            mediaPlayer = MediaPlayer.create(this, R.raw.foot);
         } catch (NullPointerException E) {
             Toast.makeText(getApplicationContext(), "NullPointerException", Toast.LENGTH_SHORT).show();
         }
